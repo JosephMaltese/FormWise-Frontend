@@ -10,7 +10,6 @@ const musclesFrontOnly = [
     "knees"
 ];
 const musclesBackOnly = [
-    "adductors",
     "upper-back",
     "lower-back",
     "hamstring",

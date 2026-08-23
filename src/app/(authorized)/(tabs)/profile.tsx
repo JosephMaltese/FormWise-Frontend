@@ -57,7 +57,7 @@ const menuItems: ProfileMenuItem[] = [
 ];
 
 export default function ProfileScreen() {
-    const { session } = useAuthSession();
+    const { session, signOut } = useAuthSession();
 
     function handleMenuPress(label: string) {
         // Replace this with your navigation logic.
@@ -77,7 +77,7 @@ export default function ProfileScreen() {
                     text: "Log Out",
                     style: "destructive",
                     onPress: async () => {
-                        // Add Supabase sign-out logic here:
+                        signOut();
                     },
                 },
             ]

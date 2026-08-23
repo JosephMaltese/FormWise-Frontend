@@ -20,25 +20,40 @@ export default function HomeScreen(): ReactNode {
 
     const frontMusclesTrained = [
         {
-            slug: "chest" as const,
-            side: "left" as const,
-            intensity: 1,
+            slug: "quadriceps" as const,
+            intensity: 3,
         },
         {
-            slug: "biceps" as const,
-            intensity: 2,
+            slug: "adductors" as const,
+            intensity: 3,
         },
         {
             slug: "abs" as const,
-            intensity: 3,
+            intensity: 2,
+        },
+        {
+            slug: "calves" as const,
+            intensity: 2,
         },
     ] as ExtendedBodyPart[];
 
     const backMusclesTrained = [
         {
-            slug: "upper-back" as const,
+            slug: "gluteal" as const,
+            intensity: 3,
+        },
+        {
+            slug: "adductors" as const,
+            intensity: 3,
+        },
+        {
+            slug: "hamstring" as const,
             intensity: 2,
         },
+        {
+            slug: "calves" as const,
+            intensity: 2,
+        }
     ] as ExtendedBodyPart[];
 
     useEffect(() => {
