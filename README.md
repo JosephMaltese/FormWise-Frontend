@@ -1,6 +1,6 @@
 # FormWise
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app). FormWise is a computer vision project that helps users understand and improve their exercise form. It uses OpenCV and Google’s MediaPipe Pose model to track body landmarks while the user performs an exercise and uses those measurements to evaluate their technique. The results are passed to an LLM, which provides a short, personalized summary of what the user did well and what they could improve. The app also uses charts and diagrams to help users track their form and progress over time.
+FormWise is a computer vision project that helps users understand and improve their exercise form. It uses OpenCV and Google’s MediaPipe Pose model to track body landmarks while the user performs an exercise and uses those measurements to evaluate their technique. The results are passed to an LLM, which provides a short, personalized summary of what the user did well and what they could improve. The app also uses charts and diagrams to help users track their form and progress over time. The frontend was built with React Native using Expo Go.
 
 ## Project Demo
 
