@@ -1,9 +1,9 @@
 import {View, Text, ScrollView, StyleSheet, TouchableOpacity} from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import {useEffect, useState} from "react";
 import {router, useLocalSearchParams} from "expo-router";
 import supabase from "@/lib/subabaseClient";
-import {SummaryPageAnalysis} from "@/lib/types";
+import {LLMAnalysis, SummaryPageAnalysis} from "@/lib/types";
 import {Ionicons} from "@expo/vector-icons";
 import Svg, {Circle} from "react-native-svg";
 import VideoPreview from "@/components/VideoPreview";
@@ -16,7 +16,7 @@ import {
     musclesBothSides,
     musclesFrontOnly
 } from "@/lib/constants";
-import {ExtendedBodyPart} from "react-native-body-highlighter";
+import { ExtendedBodyPart } from "react-native-body-highlighter";
 
 const COLORS = {
     background: "#F8F7F4",
@@ -73,6 +73,7 @@ export default function AnalysisScreen() {
     const [error, setError] = useState<string | null>(null);
     const [frontMusclesHit, setFrontMusclesHit] = useState<ExtendedBodyPart[]>([]);
     const [backMusclesHit, setBackMusclesHit] = useState<ExtendedBodyPart[]>([]);
+    const [llmAnalysis, setLlmAnalysis] = useState<LLMAnalysis | null>();
 
     useEffect(() => {
         setLoading(true);
@@ -91,6 +92,10 @@ export default function AnalysisScreen() {
                 setLoading(false);
                 return;
             }
+
+            console.log("Analysis:", video.analysis);
+            const parsedAnalysis = JSON.parse(video.analysis);
+            setLlmAnalysis(parsedAnalysis);
 
             setAnalysis({
                 llmAnalysis: video.analysis,
@@ -232,16 +237,14 @@ export default function AnalysisScreen() {
 
                 <View style={[styles.card, styles.feedbackCard]}>
                     <Text style={styles.sectionTitle}>AI Feedback Summary</Text>
+                    {llmAnalysis &&
                     <View style={styles.feedbackList}>
-                        {/*{display.feedback.map((item, index) => (*/}
-                        {/*    <Text key={`${item.title}-${index}`} style={styles.feedbackText}>*/}
-                        {/*        <Text style={styles.bullet}>• </Text>*/}
-                        {/*        <Text style={styles.feedbackLabel}>{item.title}: </Text>*/}
-                        {/*        {item.detail}*/}
-                        {/*    </Text>*/}
-                        {/*))}*/}
-                        <Text>AI summary</Text>
+                        <Text>• {llmAnalysis.overall}</Text>
+                        <Text>• {llmAnalysis.strength}</Text>
+                        <Text>• {llmAnalysis.improvement}</Text>
+                        <Text>• {llmAnalysis.action}</Text>
                     </View>
+                    }
                 </View>
 
                 <MuscleDiagram frontMusclesTrained={frontMusclesHit} backMusclesTrained={backMusclesHit} />

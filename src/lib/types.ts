@@ -45,6 +45,13 @@ type MusclesTrained = {
     secondary: string[];
 }
 
+type LLMAnalysis = {
+    overall: string;
+    strength: string;
+    improvement: string;
+    action: string;
+}
+
 type Exercise = "Bicep Curl" | "Bench Press" | "Squat";
 type APIExercise = "BICEP CURL" | "BENCH PRESS" | "SQUAT";
 
@@ -57,4 +64,5 @@ export {
     Exercise,
     APIExercise,
     MusclesTrained,
+    LLMAnalysis,
 };
