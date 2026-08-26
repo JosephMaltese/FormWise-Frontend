@@ -69,6 +69,16 @@ const defaultBodyColorHex = "#989898" as const;
 
 const apiURL = "http://127.0.0.1:8000/analyze-video/";
 
+const COLORS = {
+    background: "#F8F7F4",
+    card: "#FFFFFF",
+    ink: "#1D1D21",
+    muted: "#66666F",
+    line: "#DCE3EA",
+    blue: "#078DC8",
+    paleBlue: "#DDF2FC",
+};
+
 export {
     musclesFrontOnly,
     musclesBackOnly,
@@ -83,4 +93,5 @@ export {
     apiURL,
     exerciseEnumToDisplayName,
     exerciseMuscles,
+    COLORS,
 };
