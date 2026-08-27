@@ -1,11 +1,11 @@
 import {ReactNode} from 'react';
 import {
     Pressable,
-    SafeAreaView,
     StyleSheet,
     Text,
     View,
 } from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import {router} from 'expo-router';
 import Svg, {Circle, Path} from 'react-native-svg';
 import Body, {type ExtendedBodyPart} from 'react-native-body-highlighter';
@@ -17,7 +17,7 @@ const intensityColorsHex = ['#E5E5FF', '#C4C4FF', '#9696FF', BRAND];
 // Replace this sample data with the muscles returned by your form analysis.
 const frontData: ExtendedBodyPart[] = [
     {slug: 'quadriceps', intensity: 4},
-    {slug: 'chest', intensity: 2},
+    {slug: 'abs', intensity: 2},
 ];
 
 function BrandMark() {
@@ -37,45 +37,9 @@ function BrandMark() {
     );
 }
 
-// function ScoreRing({score}: {score: number}) {
-//     const size = 82;
-//     const strokeWidth = 8;
-//     const radius = (size - strokeWidth) / 2;
-//     const circumference = 2 * Math.PI * radius;
-//     const progress = Math.max(0, Math.min(100, score));
-//
-//     return (
-//         <View style={styles.scoreRing}>
-//             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-//                 <Circle
-//                     cx={size / 2}
-//                     cy={size / 2}
-//                     r={radius}
-//                     fill="none"
-//                     stroke="#E7E7F2"
-//                     strokeWidth={strokeWidth}
-//                 />
-//                 <Circle
-//                     cx={size / 2}
-//                     cy={size / 2}
-//                     r={radius}
-//                     fill="none"
-//                     stroke={BRAND}
-//                     strokeWidth={strokeWidth}
-//                     strokeDasharray={`${circumference} ${circumference}`}
-//                     strokeDashoffset={circumference * (1 - progress / 100)}
-//                     strokeLinecap="round"
-//                     rotation="-90"
-//                     origin={`${size / 2}, ${size / 2}`}
-//                 />
-//             </Svg>
-//             <Text style={styles.scoreNumber}>{Math.round(progress)}</Text>
-//         </View>
-//     );
-// }
-
 export default function LandingScreen(): ReactNode {
     return (
+        <SafeAreaProvider>
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.content}>
                 <View style={styles.brandRow}>
@@ -135,6 +99,7 @@ export default function LandingScreen(): ReactNode {
                 </View>
             </View>
         </SafeAreaView>
+        </SafeAreaProvider>
     );
 }
 
