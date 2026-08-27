@@ -4,7 +4,7 @@ FormWise is a computer vision project that helps users understand and improve th
 
 ## Project Demo
 
-▶️ [Watch the FormWise demo](assets/FormWiseDemo.mp4)
+https://github.com/user-attachments/assets/7846c92d-d9c6-4975-9c5e-ba8c155157c5
 
 ## Get started
 
