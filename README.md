@@ -11,7 +11,7 @@ https://github.com/user-attachments/assets/7846c92d-d9c6-4975-9c5e-ba8c155157c5
 1. Clone Repository
 
    ```bash
-   git clone
+   git clone https://github.com/JosephMaltese/FormWise-Frontend.git
    ```
    
 2. Install dependencies
